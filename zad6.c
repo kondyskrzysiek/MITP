@@ -1,7 +1,11 @@
 #include <stdio.h>
 
-int numSize(number){
+int numSize(int number);
+void printNumber(int number);
+
+int numSize(int number){
     int size = 0;
+
     while(number>0){
         size++;
         number /= 10;
@@ -10,7 +14,7 @@ int numSize(number){
     return size;
 }
 
-void printNumber(number){
+void printNumber(int number){
     int size = 5 - numSize(number);
     
     while(size) {

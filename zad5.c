@@ -6,31 +6,31 @@ int main(){
     printf("Podaj wyrazenie : ");
     scanf("%lf%c%lf",&a,&operator,&b);
 
-    if(operator != '+' || operator != '-' || operator != '*' || operator != '/'){
-        printf("error operator!!!\n");
-        return 0;
-    }
+    if(operator == '+' || operator == '-' || operator == '*' || operator == '/'){
+        printf("%.2lf  %c   %.2lf  =  ",a,operator,b);
 
-    printf("%.2lf  %c   %.2lf  =  ",a,operator,b);
-
-    switch(operator){
-        case '+':
-            wynik = a+b;
-            printf("%.2lf",wynik);
-            break;
-        case '-':
-            wynik = a-b;
-            printf("%.2lf",wynik);
-            break;
+        switch(operator){
+            case '+':
+                wynik = a+b;
+                printf("%.2lf",wynik);
+                break;
+            case '-':
+                wynik = a-b;
+                printf("%.2lf",wynik);
+                break;
+            
+            case '*':
+                wynik = a*b;
+                printf("%.2lf",wynik);
+                break;
+            case '/':
+                wynik = a/b;
+                printf("%.2lf",wynik);
+                break;
+        }
         
-        case '*':
-            wynik = a*b;
-            printf("%.2lf",wynik);
-            break;
-        case '/':
-            wynik = a/b;
-            printf("%.2lf",wynik);
-            break;
+    }else{
+        printf("error operator!!!\n");
     }
 
     printf("\n");
