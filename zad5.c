@@ -1,35 +1,32 @@
 #include <stdio.h>
 
-int main(){
+int main()
+{
     char operator;
-    double a,b,wynik;
+    double a, b, wynik;
     printf("Podaj wyrazenie : ");
-    scanf("%lf%c%lf",&a,&operator,&b);
+    scanf("%lf%c%lf", &a, &operator, & b);
 
-    if(operator == '+' || operator == '-' || operator == '*' || operator == '/'){
-        printf("%.2lf  %c   %.2lf  =  ",a,operator,b);
+    switch (operator)
+    {
+    case '+':
+        wynik = a + b;
+        printf("%.2lf", wynik);
+        break;
+    case '-':
+        wynik = a - b;
+        printf("%.2lf", wynik);
+        break;
 
-        switch(operator){
-            case '+':
-                wynik = a+b;
-                printf("%.2lf",wynik);
-                break;
-            case '-':
-                wynik = a-b;
-                printf("%.2lf",wynik);
-                break;
-            
-            case '*':
-                wynik = a*b;
-                printf("%.2lf",wynik);
-                break;
-            case '/':
-                wynik = a/b;
-                printf("%.2lf",wynik);
-                break;
-        }
-        
-    }else{
+    case '*':
+        wynik = a * b;
+        printf("%.2lf", wynik);
+        break;
+    case '/':
+        wynik = a / b;
+        printf("%.2lf", wynik);
+        break;
+    default:
         printf("error operator!!!\n");
     }
 
