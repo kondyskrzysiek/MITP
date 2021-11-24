@@ -7,6 +7,8 @@ int main()
     printf("Podaj dlugosc boku : ");
     scanf("%d", &n);
 
+    printf("\n\t");
+
     //wysokosc podstawy gornej
     for (int i = 0; i < n; i++)
     {
@@ -18,7 +20,7 @@ int main()
     //sciany boczne
     for (int i = 0; i < (n - 2); i++)
     {
-        printf("%%");
+        printf("\t%%");
         for (int j = 0; j < (n - 2); j++)
         {
             printf(" ");
@@ -26,13 +28,15 @@ int main()
         printf("%%\n");
     }
 
+    printf("\t");
+
     //wysokosc podstawy dolnej
     for (int i = 0; i < n; i++)
     {
         printf("%%");
     }
 
-    printf("\n");
+    printf("\n\t");
 
     return 0;
 }
