@@ -4,15 +4,22 @@ int fibbonacci(int n);
 
 int fibbonacci(int n)
 {
-    int a = 1, wartosc_n = 1, b;
-
-    for (int i = 2; i < n; i++)
+    int a = 1, wartosc_n, b;
+    if (n == 0)
     {
-        b = wartosc_n;
-        wartosc_n += a;
-        a = b;
+        wartosc_n = 0;
     }
+    else
+    {
+        wartosc_n = 1;
 
+        for (int i = 2; i < n; i++)
+        {
+            b = wartosc_n;
+            wartosc_n += a;
+            a = b;
+        }
+    }
     return wartosc_n;
 }
 
@@ -22,8 +29,8 @@ int main()
 
     printf("Podaj liczbe n tego elementu ciagu Fibbonacciego ktorego wyliczyc : ");
     scanf("%d", &n);
-    printf("Dla %d elementu ciagu fibbonacciego wartosc wynosi %d",n,fibbonacci(n));
-    printf("\n");
+    printf("Dla %d elementu ciagu fibbonacciego wartosc wynosi %d", n, fibbonacci(n));
+    printf("\n\n");
 
     return 0;
 }

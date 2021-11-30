@@ -9,6 +9,12 @@ int main()
 
     printf("\n\t");
 
+    if (n == 1)
+    {
+        printf("%%\n\n");
+        return 0;
+    }
+
     //wysokosc podstawy gornej
     for (int i = 0; i < n; i++)
     {
