@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-int fibbonacci(int n);
+unsigned long long fibbonacci(int n);
 
-int fibbonacci(int n)
+unsigned long long fibbonacci(int n)
 {
-    int a = 1, wartosc_n, b;
+    unsigned long long wartosc_n, a = 1, b;
     if (n == 0)
     {
         wartosc_n = 0;
@@ -29,7 +29,7 @@ int main()
 
     printf("Podaj liczbe n tego elementu ciagu Fibbonacciego ktorego wyliczyc : ");
     scanf("%d", &n);
-    printf("Dla %d elementu ciagu fibbonacciego wartosc wynosi %d", n, fibbonacci(n));
+    printf("Dla %d elementu ciagu fibbonacciego wartosc wynosi %llu", n, fibbonacci(n));
     printf("\n\n");
 
     return 0;
