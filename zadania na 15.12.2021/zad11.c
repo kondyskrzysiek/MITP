@@ -1,15 +1,14 @@
 #include <stdio.h>
-// zmienne
-int b=0;
-
 // deklaracje funkcji
 void funkcja();
 
 void funkcja(){
-    b += 1;
+    static int b = 0;
+    b++;
+    printf("funkcja zostala wywolana %d raz\n",b);
 }
 
-void main(){
+int main(){
     int a;
 
     printf("Podaj liczbe wywoalan: ");
@@ -18,6 +17,5 @@ void main(){
     for(int i=0; i<a; i++){
         funkcja();
     }
-    
-    printf("funkcja zostala wywolana %d \n",b);
+    return 0;
 }
