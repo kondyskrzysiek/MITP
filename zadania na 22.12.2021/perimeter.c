@@ -2,10 +2,14 @@
 #include <stdio.h>
 #include "point.h"
 
-float perimeter(struct POINT, struct POINT, struct POINT)
+float sideLength(struct POINT A, struct POINT B)
 {
-    float lenghtAB,lenghtAC,lenghtBC;
-    lenghtAB = sqrt(pow((b.x - a.x),2) + pow((b.y - a.y),2));
-    // return lenghtAB + lenghtAC + lenghtBC;
-    return lenghtAB;
+    float lenght;
+    lenght = sqrt(pow((B.x - A.x), 2) + pow((B.y - A.y), 2));
+    return lenght;
+}
+
+float perimeter(struct POINT A, struct POINT B, struct POINT C)
+{
+    return sideLength(A, B) + sideLength(A, C) + sideLength(B, C);
 }
