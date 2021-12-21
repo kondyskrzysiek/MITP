@@ -11,10 +11,11 @@ typedef struct MATRIX_S
 
 MATRIX m_create(int x, int y)
 {
-    int *tab;
+    MATRIX tab;
+    // int tab;
     int size = x*y;
-    tab = (int*)malloc(size * sizeof(int));
-    
+    tab.wsk = (int*)calloc(size, sizeof(int));
+
     return tab;
 }
 
@@ -22,12 +23,12 @@ int main(){
     MATRIX tab;
     tab.x = 1;
     tab.y = 3;
-    tab.wsk = m_create(tab.x,tab.y);
+    tab = m_create(tab.x, tab.y);
     
-    for(int i =0;i<size;i++)
-    {
-        printf("%d",tab.wsk[i]);
-    }
+    // for(int i =0;i<size;i++)
+    // {
+    //     printf("%d",tab.wsk[i]);
+    // }
 
     return 0;
 }
