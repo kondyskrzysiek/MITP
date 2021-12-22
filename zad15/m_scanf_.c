@@ -14,9 +14,7 @@ int m_scanf_(MATRIX *mstruct, int x, int y)
             mstruct->wsk = calloc(size, sizeof(int));
         }
         else
-        {
             mstruct->wsk = realloc(mstruct->wsk, sizeof(int) * x * y);
-        }
     }
 
     if (!mstruct->wsk)
