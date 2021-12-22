@@ -3,12 +3,10 @@
 
 MATRIX m_create(int x, int y)
 {
-    int size;
-    struct MATRIX_S tab;
+    MATRIX tab;
     tab.x = x;
     tab.y = y;
-    size = x*y;
-    tab.wsk = malloc(size * sizeof(*tab.wsk));
-
+    int size = x * y;
+    tab.wsk = (int *)calloc(size, sizeof(int));
     return tab;
 }
