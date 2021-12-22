@@ -38,7 +38,7 @@ int m_printf(MATRIX tab)
     for (int x = 0; x < tab.x; x++)
     {
         for (int y = 0; y < tab.y; y++)
-            printf("%d\t", tab.wsk[x*tab.y+y]);
+            printf("%d\t", tab.wsk[x * tab.y + y]);
         printf("\n");
     }
 
@@ -50,9 +50,13 @@ int m_get(MATRIX tab, int x, int y)
     return *(tab.wsk + --x * tab.y + --y);
 }
 
-void m_put(MATRIX tab, int x, int y, int wart)
+int m_put(MATRIX tab, int x, int y, int wart)
 {
+    if (x <=0 || y<=0 || x > tab.x || y > tab.y)
+        return 0;
+
     *(tab.wsk + --x * tab.y + --y) = wart;
+    return 1;
 }
 
 int m_remove(MATRIX *mstruct)
@@ -82,11 +86,34 @@ int m_scanf(MATRIX *mstruct)
     return 1;
 }
 
-int m_scanf_(MATRIX *mstruct)
+int m_scanf_(MATRIX *mstruct, int x, int y)
 {
+    if (!mstruct)
+        return 0;
 
-    return 1;
+    if (x != mstruct->x || y != mstruct->y)
+    {
+        if (!mstruct->wsk)
+        {
+            int size = x * y;
+            mstruct->wsk = calloc(size, sizeof(int));
+        }
+        else
+        {
+            mstruct->wsk = realloc(mstruct->wsk, sizeof(int) * x * y);
+        }
+    }
+
+    if(!mstruct->wsk)
+        return 0;
+    
+    mstruct->x = x;
+    mstruct->y = y;
+
+    return m_scanf(mstruct);
 }
+
+
 
 int main()
 {
@@ -95,14 +122,13 @@ int main()
     tab.x = 3;
     tab.y = 3;
     tab = m_create(tab.x, tab.y);
-    m_put(tab, 2, 2, 10);
-    printf("--%d\n", m_get(tab, 2, 3));
-    a = m_printf(tab);
+    
+    m_printf(tab);
+    
 
-    // for(int i =0;i<size;i++)
-    // {
-    //     printf("%d",tab.wsk[i]);
-    // }
+
+    if (!m_put(tab,3,3,15))
+        printf("ERROR\n");
 
     return 0;
 }
