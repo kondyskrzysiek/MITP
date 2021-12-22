@@ -22,7 +22,7 @@ int main()
     }
 
     // introducing variables to the matrix
-    printf("zapis całej macierzy podaj wiersze i kolumny macierzy <<x y>>\n");
+    printf("zapis calej macierzy podaj wiersze i kolumny macierzy <<x y>>\n");
     scanf("%d %d", &x, &y);
 
     m_scanf_(&tab, x, y);
