@@ -65,13 +65,7 @@ int main()
         int a;
         printf("%d: ", i + 1);
         scanf("%d %d", &x, &y);
-        a = m_get(&tab, x, y);
-        if (!a)
-        {
-            printf("ERROR\n");
-            return 0;
-        }
-        printf(">>> %d\n",a);
+        printf(">>> %d\n",m_get(&tab, x, y));
     }
 
     //displaying matrices
