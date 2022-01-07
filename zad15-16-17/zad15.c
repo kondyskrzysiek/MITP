@@ -27,6 +27,32 @@ int main()
 
     m_scanf_(&tab, x, y);
 
+    //displaying matrices
+    printf("\nMACIERZ\n");
+    if (!m_printf(&tab))
+    {
+        printf("ERROR : Macierz nie istnieje\n");
+        return 0;
+    }
+
+    if ((tab.x != tab.y) && tab.x < 2) //there is no matrix determinant
+        printf("Wyznacznik macierzy %d x %d = %d\n", tab.x, tab.y, m_determinant(&tab));
+    else
+        printf("Macierz %d x %d nie jest macierza kwadratowa jej wyznacznik nie jest okreslony \n",tab.x, tab.y);
+
+    // introducing variables to the matrix
+    printf("Zmiana wartosci dla 3 poszczegolnych komorek, podaj wiersz kolumne i wartosc jaka wpisac << x y wartosc>> \n");
+    for (int i = 0; i < 3; i++)
+    {
+        int value = 0;
+        printf("%d: ", i + 1);
+        scanf("%d %d %d", &x, &y, &value);
+        if (!m_put(&tab, x, y, value))
+        {
+            printf("ERROR\n");
+            return 0;
+        }
+    }
 
     //displaying matrices
     printf("\nMACIERZ\n");
@@ -36,47 +62,23 @@ int main()
         return 0;
     }
 
-    printf("%d\n",m_determinant(&tab));
+    // displaying any points in the matrix
+    printf("Sprawdz 3 dowolne miejsca w macierzy\n");
+    for (int i = 0; i < 3; i++)
+    {
+        int a;
+        printf("%d: ", i + 1);
+        scanf("%d %d", &x, &y);
+        printf(">>> %d\n",m_get(&tab, x, y));
+    }
 
-    // // introducing variables to the matrix 
-    // printf("Zmiana wartosci dla 3 poszczegolnych komorek, podaj wiersz kolumne i wartosc jaka wpisac << x y wartosc>> \n");
-    // for (int i = 0; i < 3; i++)
-    // {
-    //     int value = 0;
-    //     printf("%d: ", i + 1);
-    //     scanf("%d %d %d", &x, &y, &value);
-    //     if (!m_put(&tab, x, y, value))
-    //     {
-    //         printf("ERROR\n");
-    //         return 0;
-    //     }
-    // }
-
-    // //displaying matrices
-    // printf("\nMACIERZ\n");
-    // if (!m_printf(&tab))
-    // {
-    //     printf("ERROR : Macierz nie istnieje\n");
-    //     return 0;
-    // }
-    
-    // // displaying any points in the matrix
-    // printf("Sprawdz 3 dowolne miejsca w macierzy\n");
-    // for (int i = 0; i < 3; i++)
-    // {
-    //     int a;
-    //     printf("%d: ", i + 1);
-    //     scanf("%d %d", &x, &y);
-    //     printf(">>> %d\n",m_get(&tab, x, y));
-    // }
-
-    // //displaying matrices
-    // printf("\nMACIERZ\n");
-    // if (!m_printf(&tab))
-    // {
-    //     printf("ERROR : Macierz nie istnieje\n");
-    //     return 0;
-    // }
+    //displaying matrices
+    printf("\nMACIERZ\n");
+    if (!m_printf(&tab))
+    {
+        printf("ERROR : Macierz nie istnieje\n");
+        return 0;
+    }
 
     // removing the MATRIX structure
     printf("usuwanie struktury MATRIX\n");
@@ -87,8 +89,6 @@ int main()
     }
     else
         printf("CORRECT DELETE\n");
-
-
 
     //displaying matrices
     printf("\nMACIERZ\n");
