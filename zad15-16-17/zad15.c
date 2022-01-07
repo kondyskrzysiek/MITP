@@ -5,7 +5,8 @@
 int main()
 {
     MATRIX tab;
-    int x = 0, y = 0;
+    MATRIX result_mulitiplications;
+    int num, x = 0, y = 0;
 
     printf("tworzenie macierzy podaj x i y: ");
     scanf("%d %d", &tab.x, &tab.y);
@@ -35,7 +36,25 @@ int main()
         return 0;
     }
 
-    if ((tab.x != tab.y) && tab.x < 2) //there is no matrix determinant
+    //creating the result of multiplication of a matrix by a scalar
+
+    printf("Mnozenie macierzy przez skalar >> ");
+    scanf("%d", &num);
+
+    result_mulitiplications.x = tab.x;
+    result_mulitiplications.y = tab.y;
+    result_mulitiplications = m_create(result_mulitiplications.x, result_mulitiplications.y);
+
+    m_multiplication(&tab, num, &result_mulitiplications);
+
+    printf("\nMACIERZ MULTIPLICATION RESULTS\n");
+    if (!m_printf(&result_mulitiplications))
+    {
+        printf("ERROR : Macierz nie istnieje\n");
+        return 0;
+    }
+
+    if ((tab.x != tab.y) && tab.x < 2)       //there is no matrix determinant
         printf("Wyznacznik macierzy %d x %d = %d\n", tab.x, tab.y, m_determinant(&tab));
     else
         printf("Macierz %d x %d nie jest macierza kwadratowa jej wyznacznik nie jest okreslony \n",tab.x, tab.y);
@@ -83,6 +102,14 @@ int main()
     // removing the MATRIX structure
     printf("usuwanie struktury MATRIX\n");
     if (!m_remove(&tab))
+    {
+        printf("ERROR DELETE\n");
+        return 0;
+    }
+    else
+        printf("CORRECT DELETE\n");
+        
+    if (!m_remove(&result_mulitiplications))
     {
         printf("ERROR DELETE\n");
         return 0;

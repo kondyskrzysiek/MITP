@@ -15,4 +15,5 @@ int m_scanf(MATRIX *tab);
 int m_scanf_(MATRIX *tab, int x, int y);
 int m_printf(MATRIX *tab);
 int m_determinant(MATRIX *tab);
+int m_multiplication(MATRIX *tab , int num, MATRIX *result);
 #endif
