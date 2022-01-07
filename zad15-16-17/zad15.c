@@ -54,10 +54,10 @@ int main()
         return 0;
     }
 
-    if ((tab.x != tab.y) && tab.x < 2)       //there is no matrix determinant
-        printf("Wyznacznik macierzy %d x %d = %d\n", tab.x, tab.y, m_determinant(&tab));
+    if ((tab.x == tab.y) && tab.x > 2)     //there is no matrix determinant
+        printf("Wyznacznik macierzy %d x %d = %d\n\n", tab.x, tab.y, m_determinant(&tab));
     else
-        printf("Macierz %d x %d nie jest macierza kwadratowa jej wyznacznik nie jest okreslony \n",tab.x, tab.y);
+        printf("Macierz %d x %d nie jest macierza kwadratowa jej wyznacznik nie jest okreslony \n\n",tab.x, tab.y);
 
     // introducing variables to the matrix
     printf("Zmiana wartosci dla 3 poszczegolnych komorek, podaj wiersz kolumne i wartosc jaka wpisac << x y wartosc>> \n");
@@ -108,7 +108,7 @@ int main()
     }
     else
         printf("CORRECT DELETE\n");
-        
+
     if (!m_remove(&result_mulitiplications))
     {
         printf("ERROR DELETE\n");
