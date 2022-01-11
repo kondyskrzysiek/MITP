@@ -36,6 +36,42 @@ int main()
         return 0;
     }
 
+    MATRIX tabB;
+    printf("Tworzenie drugiej macierzy do wymnozenia: wymiar <<x y>>: ");
+    scanf("%d %d", &tabB.x, &tabB.y);
+
+    //create matrices
+    tabB = m_create(tabB.x, tabB.y);
+
+    //matrix notation
+    printf("Uzupelnianie macierzy liczbami\n");
+    m_scanf(&tabB);
+
+    printf("\ntabB\n");
+    if (!m_printf(&tabB))
+    {
+        printf("ERROR : Macierz nie istnieje\n");
+        return 0;
+    }
+
+
+    
+    result_mulitiplications.x = tab.x;
+    result_mulitiplications.y = tabB.y;
+    result_mulitiplications = m_create(result_mulitiplications.x, result_mulitiplications.y);
+
+    m_multiplication_mxm(&tab,&tabB, &result_mulitiplications);
+
+    printf("\nresult_mulitiplications\n");
+    if (!m_printf(&result_mulitiplications))
+    {
+        printf("ERROR : Macierz nie istnieje\n");
+        return 0;
+    }
+
+
+
+
     if ((tab.x == tab.y) && tab.x >= 2) //there is no matrix determinant
         printf("Wyznacznik macierzy %d x %d = %d\n\n", tab.x, tab.y, m_determinant(&tab));
     else
@@ -104,6 +140,14 @@ int main()
     // removing the MATRIX structure
     printf("usuwanie struktury MATRIX\n");
     if (!m_remove(&tab))
+    {
+        printf("ERROR DELETE\n");
+        return 0;
+    }
+    else
+        printf("CORRECT DELETE\n");
+    
+    if (!m_remove(&tabB))
     {
         printf("ERROR DELETE\n");
         return 0;

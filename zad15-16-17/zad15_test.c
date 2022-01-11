@@ -127,6 +127,6 @@ int main()
 
     printf("\nMATRIX result_mulitiplications\n");
     ERROR_M_PRINTF(m_printf(&result_mulitiplications));
-    
+
     return 0;
 }
