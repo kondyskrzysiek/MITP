@@ -8,5 +8,6 @@ MATRIX m_create(int x, int y)
     tab.y = y;
     int size = x * y;
     tab.wsk = (int *)calloc(size, sizeof(int));
+    
     return tab;
 }
