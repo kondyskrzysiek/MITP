@@ -10,8 +10,7 @@ int m_scanf(MATRIX *mstruct)
         printf("wiersz : %d >> : ",i);
         for (int y = 0; y < mstruct->y; y++)
         {   
-            if (!scanf("%d", mstruct->wsk + (x * mstruct->y) + y))
-                return 0;
+            scanf("%d", mstruct->wsk + (x * mstruct->y) + y);
         }
     }
 
