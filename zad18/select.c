@@ -10,7 +10,6 @@ int minimum(MATRIX *ary, int start)
     {
         if (liczba > *(ary->ptr + start))
         {
-
             liczba = *(ary->ptr + start);
             index = start;
         }
