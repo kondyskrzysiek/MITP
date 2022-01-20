@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-// #include "sort.h"
+#include "sortstr.h"
 
 void messege_to_the_user()
 {
@@ -14,10 +14,8 @@ void messege_to_the_user()
 void printf_array(char *array[], int len_array)
 {
     for(int i = 0; i < len_array; i++)
-    {
-        printf("..");
         printf("%s\t",array[i]);
-    }
+    
     printf("\n");
 }
 
@@ -58,7 +56,7 @@ int main(int argc, char *argv[])
     int dataStart;
 
     mode = parse_args(argc, argv, &dataStart);
-
+    
     if (!mode)
     {
         messege_to_the_user();
@@ -66,11 +64,18 @@ int main(int argc, char *argv[])
     int len_array = argc - dataStart;
 
     char **array = (char **)malloc(sizeof(char **) * len_array);
-
-    for (int i = dataStart; dataStart < argc; i++)
+   
+    for (int i = dataStart; i < argc; i++)
         array[i - dataStart] = argv[i];
 
+    printf("\nBefore sorted >> ");
     printf_array(array, len_array);
 
+    if(mode == 'b')
+        bubble_str(array, len_array);
+
+    printf("\nAfter sorted >> ");
+    printf_array(array, len_array);
+    printf("\n");
     return 0;
 }
