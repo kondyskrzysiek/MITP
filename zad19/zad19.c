@@ -13,9 +13,9 @@ void messege_to_the_user()
 
 void printf_array(char *array[], int len_array)
 {
-    for(int i = 0; i < len_array; i++)
-        printf("%s\t",array[i]);
-    
+    for (int i = 0; i < len_array; i++)
+        printf("%s\t", array[i]);
+
     printf("\n");
 }
 
@@ -28,7 +28,7 @@ char parse_args(int argc, char *argv[], int *dataStart)
         if (strcmp(argv[1], "-nbubble") == 0)
         {
             (*dataStart) = 2;
-          mode = 'b';
+            mode = 'b';
         }
         else if (argc >= 3 && strcmp(argv[2], "bubble") == 0)
         {
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     int dataStart;
 
     mode = parse_args(argc, argv, &dataStart);
-    
+
     if (!mode)
     {
         messege_to_the_user();
@@ -64,15 +64,23 @@ int main(int argc, char *argv[])
     int len_array = argc - dataStart;
 
     char **array = (char **)malloc(sizeof(char **) * len_array);
-   
+
     for (int i = dataStart; i < argc; i++)
         array[i - dataStart] = argv[i];
 
     printf("\nBefore sorted >> ");
     printf_array(array, len_array);
 
-    if(mode == 'b')
+    if (mode == 'b')
+    {
+        printf("\n[Bubble]\n");
         bubble_str(array, len_array);
+    }
+    else if (mode == 's')
+    {
+        printf("\n[Select]\n");
+        select_str(array, len_array);
+    }
 
     printf("\nAfter sorted >> ");
     printf_array(array, len_array);
