@@ -2,7 +2,7 @@
 #include <string.h>
 #include "sortstr.h"
 
-int minimum_str(char *array[], int len_array,int dataStart)
+static int minimum_str(char *array[], int len_array,int dataStart)
 {
     int index = dataStart-1;
     for(;dataStart < len_array;dataStart++)
