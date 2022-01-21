@@ -63,43 +63,39 @@ int main(int argc, char *argv[])
     char **array = (char **)malloc(sizeof(char **) * len_array);
     char string[] = "";
     int nextString = 0;
-    
+
     int len = len_array;
-    
-    printf("%d\n",len_array);
 
     while (nextString < len)
-    {   
-        printf("\n%d < %d\n",nextString,len);
+    {
+        printf("\n%d. ", nextString+1);
         scanf("%s", string);
         strcpy(array[nextString], string);
         nextString += 1;
     }
-    printf("%d\n",len_array);
+
     len_array = len;
-    printf("%d",len_array);
     printf("\nBefore sorted >> ");
+
+    if (mode == 'b')
+    {
+        printf("\n[Bubble]\n");
+        bubble_str(array, len_array);
+    }
+    else if (mode == 's')
+    {
+        printf("\n[Select]\n");
+        select_str(array, len_array);
+    }
+
+    printf("\nAfter sorted >> ");
     printf_array(array, len_array);
+    printf("\n");
 
+    for (int i = 0; i < len_array; i++)
+        free(array[i]);
 
+    free(array);
+    printf_array(array, len_array);
     return 0;
-}    // if (mode == 'b')
-    // {
-    //     printf("\n[Bubble]\n");
-    //     bubble_str(array, len_array);
-    // }
-    // else if (mode == 's')
-    // {
-    //     printf("\n[Select]\n");
-    //     select_str(array, len_array);
-    // }
-
-    // printf("\nAfter sorted >> ");
-    // printf_array(array, len_array);
-    // printf("\n");
-
-    // for (int i = 0; i < len_array; i++)
-    //     free(array[i]);
-
-    // free(array);
-    // printf_array(array, len_array);
+}
