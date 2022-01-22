@@ -1,6 +1,6 @@
-#include "sortstr.h"
-
-int bubble_int(int *array, int size_array)
+#include "sort.h"
+// qsort(array, size_array,sizeof(int),comp_int);
+void bubble(void * base, size_t nel, size_t width, int (* compar)(const void *, const void *));
 {
     int check_change = 1;
     while (check_change)
