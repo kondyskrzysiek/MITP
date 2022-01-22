@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "time.h": "c"
+        "time.h": "c",
+        "sort.h": "c",
+        "array": "c"
     }
 }

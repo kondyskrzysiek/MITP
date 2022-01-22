@@ -8,17 +8,17 @@ void messege_to_the_user()
     printf("select - for select sort\n\n");
 }
 
-int printf_array(int array[], int size_array)
+void printf_array(char *array[], int len_array)
 {
-    for (int i = 0; i < size_array; i++)
-        printf("%d\t", array[i]);
+    for (int i = 0; i < len_array; i++)
+        printf("%s\t", array[i]);
 
     printf("\n");
-    return 0;
 }
 
-int comp_int(const void * ad1, const void * ad2) {
-    return *(const int *) ad1 - *(const int *) ad2;
+int comp_str(const void *ad1, const void *ad2)
+{
+    return strcmp(*(const char **)ad1, *(const char **)ad2);
 }
 
 char parse_args(int argc, char *argv[])
@@ -44,7 +44,7 @@ char parse_args(int argc, char *argv[])
             mode = 'b';
         }
     }
-    
+
     return mode;
 }
 
@@ -59,50 +59,49 @@ int main(int argc, char *argv[])
         messege_to_the_user();
         return 0;
     }
+    
     int size_array = 0;
 
-    while(1)
+    while (1)
     {
         printf("Enter the number of items to be sorted >> ");
         scanf("%d", &size_array);
-        if(size_array>1)
+        if (size_array > 1)
             break;
         printf("[Length array > 1]\n");
     }
 
-    int *array = (int*)malloc(sizeof(int) * size_array);
-    int num;
-    int nextNumber = 0;
+    char *array[size_array];
+    char string[14];
+    int nextString = 0;
 
-    for(int counter = 0;counter < size_array;counter++)
+    while (nextString < size_array)
     {
-        printf("%d.  ",counter+1);
-        scanf("%d",&num);
-        array[counter] = num;
+        printf("%d. ", nextString + 1);
+        scanf("%s", string);
+        array[nextString] = (char *)malloc(sizeof(char) * (strlen(string) + 1));
+        strcpy(array[nextString], string);
+        nextString += 1;
     }
 
     printf("\nBefore sorted >> ");
 
     printf_array(array, size_array);
 
-    // qsort(array, size_array,sizeof(int),comp_int);
-
     if (mode == 'b')
     {
         printf("\n[Bubble]\n");
-        bubble(array, size_array,sizeof(int),comp_int);
+        bubble(array, size_array, sizeof(int), comp_str);
     }
     else if (mode == 's')
     {
         printf("\n[Select]\n");
-        select(array,size_array,sizeof(int),comp_int);
+        select(array, size_array, sizeof(int), comp_str);
     }
 
     printf("\nAfter sorted  >> ");
     printf_array(array, size_array);
     printf("\n");
-
-
 
     free(array);
     // printf_array(array, size_array);

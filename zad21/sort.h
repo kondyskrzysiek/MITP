@@ -1,5 +1,9 @@
 #ifndef _SORTSTR_H
 #define _SORTSTR_H
-void bubble_int(int *array, int size_array);
-int select_int(int *array, int size_array);
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void bubble(void *base, size_t len, size_t width, int (*compar)(const void *, const void *));
+void select(void *base, size_t len, size_t width, int (*compar)(const void *, const void *));
+void swap(void *ad1, void *ad2, int bytes);
 #endif
