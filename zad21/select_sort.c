@@ -2,7 +2,7 @@
 #include "sort.h"
 
 
-void select(void *base, size_t len, size_t width, int (*compar)(const void *, const void *))
+void select_sort(void *base, size_t len, size_t width, int (*compar)(const void *, const void *))
 {
     int temp, index;
     for (int i = 0; i < len; i++)

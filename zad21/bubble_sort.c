@@ -1,6 +1,6 @@
 #include "sort.h"
 
-void bubble(void *base, size_t len, size_t width, int (*compar)(const void *, const void *))
+void bubble_sort(void *base, size_t len, size_t width, int (*compar)(const void *, const void *))
 {
     int check_change = 1;
     while (check_change)

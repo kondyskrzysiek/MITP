@@ -91,12 +91,12 @@ int main(int argc, char *argv[])
     if (mode == 'b')
     {
         printf("\n[Bubble]\n");
-        bubble(array, size_array, sizeof(int), comp_str);
+        bubble_sort(array, size_array, sizeof(int), comp_str);
     }
     else if (mode == 's')
     {
         printf("\n[Select]\n");
-        select(array, size_array, sizeof(int), comp_str);
+        select_sort(array, size_array, sizeof(int), comp_str);
     }
 
     printf("\nAfter sorted  >> ");
