@@ -4,7 +4,7 @@
 
 void select_sort(void *base, size_t len, size_t width, int (*compar)(const void *, const void *))
 {
-    int temp, index;
+    int temp = 0, index = 0;
     for (int i = 0; i < len; i++)
     {
         index = i;
