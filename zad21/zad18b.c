@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     }
 
     int *array = (int*)malloc(sizeof(int) * size_array);
-    int num;
+    int num = 0;
     int nextNumber = 0;
 
     for(int counter = 0;counter < size_array;counter++)
