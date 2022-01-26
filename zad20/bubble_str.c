@@ -1,4 +1,4 @@
-#include <string.h>
+#include "sort.h"
 
 void bubble_str(char *array[], int len_array)
 {

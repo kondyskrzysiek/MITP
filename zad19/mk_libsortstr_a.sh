@@ -2,10 +2,10 @@
 
 set -e
 
-echo "Creating archive"
+echo "Created library"
 
 gcc -c *_str.c
-ar cr lisortstr.a *_str.o
+ar cr libsortstr.a *_str.o
 rm *_str.o
 
-echo "Archive created"
+echo "End created library"

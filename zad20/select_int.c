@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "sortstr.h"
+#include "sort.h"
 
 static int minimum_int(int *array, int size_array, int start)
 {

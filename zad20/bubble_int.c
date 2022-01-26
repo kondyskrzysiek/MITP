@@ -1,4 +1,4 @@
-#include "sortstr.h"
+#include "sort.h"
 
 int bubble_int(int *array, int size_array)
 {

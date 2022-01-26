@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "sortstr.h"
+#include "sort.h"
 
 void messege_to_the_user()
 {

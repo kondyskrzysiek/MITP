@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include "sortstr.h"
+#include "sort.h"
 
 static int minimum_str(char *array[], int len_array,int dataStart)
 {
