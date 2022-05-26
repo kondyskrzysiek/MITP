@@ -1,5 +1,4 @@
 *.exe
-test.c
 .vscode
 *.a
 !krzysiu/

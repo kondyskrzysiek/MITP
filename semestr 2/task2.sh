@@ -2,9 +2,9 @@
 
 set -e
 
-echo "START"
+echo "compiler build ...."
 
-g++ -o app -Wall main.cpp -O0
+g++ -o task2 -Wall task2.cpp -O0
 
 echo "END"
 
